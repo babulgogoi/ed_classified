@@ -1,0 +1,20 @@
+services:
+  
+  # Email Notification Service
+  ed_classified.email_notification_service:
+    class: 'Drupal\ed_classified\Service\EmailNotificationService'
+    arguments: ['@mail_manager', '@language_manager']
+    # This service will use the mail_manager service to send emails and the language_manager to handle language-specific email content.
+  
+  # Other services that might be needed in your module
+  ed_classified.ad_manager_service:
+    class: 'Drupal\ed_classified\Service\AdManagerService'
+    arguments: ['@entity_type.manager', '@database']
+
+  ed_classified.expiry_service:
+    class: 'Drupal\ed_classified\Service\ExpiryService'
+    arguments: ['@date.formatter', '@entity_type.manager']
+
+  # Other common services, depending on your module's needs.
+  # For example, if you have custom forms or controllers, you can add those services here.
+

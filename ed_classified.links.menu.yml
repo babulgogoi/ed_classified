@@ -1,0 +1,6 @@
+ed_classified.settings:
+  title: 'Classified Ads Settings'
+  description: 'Configure classified ads settings.'
+  parent: system.admin_config_content
+  route_name: ed_classified.settings
+  weight: 10

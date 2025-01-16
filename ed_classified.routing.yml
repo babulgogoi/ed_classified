@@ -1,0 +1,43 @@
+ed_classified.settings:
+  path: '/admin/config/content/ed-classified'
+  defaults:
+    _form: '\Drupal\ed_classified\Form\ClassifiedAdSettingsForm'
+    _title: 'Classified Ads Settings'
+  requirements:
+    _permission: 'administer ed classified settings'
+
+# Route to add a classified ad using a controller
+ed_classified.add_ad_controller:
+  path: '/classified-ad/post'
+  defaults:
+    _controller: '\Drupal\ed_classified\Controller\ClassifiedAdController::add'
+    _title: 'Post a Classified Ad'
+  requirements:
+    _permission: 'post classified ads'
+
+# Route to manage classified ads
+ed_classified.manage_ads:
+  path: '/classified-ads/manage'
+  defaults:
+    _controller: '\Drupal\ed_classified\Controller\ClassifiedAdController::manage'
+    _title: 'Manage Classified Ads'
+  requirements:
+    _permission: 'administer ed classified settings'
+
+# Route to add a classified ad using a form
+ed_classified.add_ad_form:
+  path: '/classified-ad/add'
+  defaults:
+    _form: '\Drupal\ed_classified\Form\ClassifiedAdForm'
+    _title: 'Post a Classified Ad'
+  requirements:
+    _permission: 'post classified ads'
+
+# Route to edit an existing classified ad
+ed_classified.edit_ad:
+  path: '/classified-ad/{classified_ad}/edit'
+  defaults:
+    _form: '\Drupal\ed_classified\Form\ClassifiedAdForm'
+    _title: 'Edit Classified Ad'
+  requirements:
+    _permission: 'administer classified ads'

@@ -1,0 +1,24 @@
+/**
+ * Implements hook_schema().
+ */
+function ed_classified_schema() {
+  $schema['ed_classified_hold'] = [
+    'description' => 'Tracks hold periods for classified ads.',
+    'fields' => [
+      'ad_id' => [
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+      'expiration_date' => [
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+      'hold_end_date' => [
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['ad_id'],
+  ];
+  return $schema;
+}

@@ -1,0 +1,12 @@
+classified_ad:
+  version: 1.x
+  css:
+    theme:
+      css/classified_ad.css: {}
+  js:
+    # If you need custom JavaScript, you can declare it here.
+    # For example:
+    # js/classified_ad.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery

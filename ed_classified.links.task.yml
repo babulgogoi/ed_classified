@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies: {  }
+
+task_links:
+  classified_ad_post:
+    title: 'Post a Classified Ad'
+    route_name: 'ed_classified.add_ad'
+    route_parameters: {  }
+    parent_id: system.admin_content
+    weight: 0
+    id: classified_ad_post
+  classified_ad_manage:
+    title: 'Manage Classified Ads'
+    route_name: 'ed_classified.manage_ads'
+    route_parameters: {  }
+    parent_id: system.admin_content
+    weight: 1
+    id: classified_ad_manage

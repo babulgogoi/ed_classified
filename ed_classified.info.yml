@@ -1,0 +1,10 @@
+name: Ed Classified
+type: module
+description: Classified ads module with auto-expiration, hold periods, and payment integration.
+core_version_requirement: ^11
+package: Custom
+dependencies:
+  - drupal:node
+  - drupal:field
+  - drupal:views
+  - drupal:commerce

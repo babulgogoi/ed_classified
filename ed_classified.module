@@ -1,0 +1,31 @@
+/**
+ * Implements hook_cron().
+ */
+function ed_classified_cron() {
+  $current_time = time();
+  $query = \Drupal::entityTypeManager()->getStorage('node')->getQuery();
+  $nids = $query
+    ->condition('type', 'classified_ad')
+    ->condition('status', 1) // Published nodes.
+    ->condition('field_expiration_date', $current_time, '<')
+    ->execute();
+
+  foreach ($nids as $nid) {
+    $node = \Drupal\node\Entity\Node::load($nid);
+    if ($node) {
+      $node->set('field_ad_status', 'Expired');
+      $node->set('status', 0); // Unpublish.
+      $node->save();
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node templates.
+ */
+function ed_classified_preprocess_node(array &$variables) {
+  if ($variables['node']->getType() === 'classified_ad') {
+    $variables['#attached']['library'][] = 'ed_classified/classified_ad';
+  }
+}
+

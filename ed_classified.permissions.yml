@@ -1,0 +1,9 @@
+post classified ads:
+  title: 'Post Classified Ads'
+  description: 'Allow users to create classified ads.'
+  restrict access: FALSE
+
+administer ed classified settings:
+  title: 'Administer Ed Classified Settings'
+  description: 'Allow users to manage Ed Classified settings.'
+  restrict access: TRUE
