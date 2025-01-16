@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies: {  }
+id: classified_ads
+label: 'Classified Ads'
+module: views
+view:
+  display:
+    default:
+      id: page_1
+      display_title: 'Classified Ads'
+      display_plugin: page
+      path: '/classified-ads'
+      query:
+        type: table
+      fields:
+        node_title:
+          id: node_title
+          label: 'Title'
+          type: field
+        field_expiration_date:
+          id: field_expiration_date
+          label: 'Expiration Date'
+          type: field
+      filter:
+        field_ad_status:
+          id: field_ad_status
+          label: 'Ad Status'
+          value: 'Active'

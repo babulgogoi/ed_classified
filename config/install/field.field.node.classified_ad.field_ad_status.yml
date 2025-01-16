@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+id: field.field.node.classified_ad.field_ad_status
+field_name: field_ad_status
+entity_type: node
+bundle: classified_ad
+label: 'Ad Status'
+field_type: list_string
+required: true
+settings:
+  allowed_values:
+    - Active
+    - Expired
+    - On Hold

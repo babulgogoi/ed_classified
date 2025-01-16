@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies: {  }
+id: classified_ad
+type: node
+name: 'Classified Ad'
+base_table: node
+module: node
+description: 'A content type for posting classified ads.'
+fieldable: true
+custom: true
+third_party_settings: {  }
+default_langcode: true
+fields:
+  field_expiration_date:
+    id: field_expiration_date
+    type: datetime
+    label: 'Expiration Date'
+    required: true
+  field_payment_status:
+    id: field_payment_status
+    type: boolean
+    label: 'Payment Status'
+    required: true
+  field_ad_status:
+    id: field_ad_status
+    type: list_string
+    label: 'Ad Status'
+    required: true
+    options:
+      - 'Active'
+      - 'Expired'
+      - 'On Hold'
