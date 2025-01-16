@@ -1,0 +1,16 @@
+{{ attach_library('ed_classified/classified_ad') }}
+
+
+<div class="classified-ad">
+  <h2 class="ad-title">{{ title }}</h2>
+  <div class="ad-category">{{ category }}</div>
+  <div class="ad-description">{{ description }}</div>
+  {% if images %}
+    <div class="ad-images">
+      {% for image in images %}
+        <img src="{{ image.url }}" alt="{{ image.alt }}" class="ad-image">
+      {% endfor %}
+    </div>
+  {% endif %}
+  <div class="ad-status {{ ad_status }}">{{ ad_status }}</div>
+</div>

@@ -1,0 +1,46 @@
+{# Template for displaying a single classified ad node #}
+
+<article class="classified-ad" role="article" aria-labelledby="classified-ad-{{ node.id }}-title">
+  <header class="classified-ad-header">
+    <h2 id="classified-ad-{{ node.id }}-title" class="classified-ad-title">
+      {{ node.label }}
+    </h2>
+    <p class="classified-ad-meta">
+      <span class="classified-ad-owner" aria-label="Posted by">
+        <strong>{{ content.field_owner.value }}</strong>
+      </span>
+      <span class="classified-ad-date" aria-label="Posted on">
+        {{ content.field_created_date.value | date("F j, Y") }}
+      </span>
+    </p>
+  </header>
+
+  <section class="classified-ad-body" aria-describedby="classified-ad-{{ node.id }}-description">
+    <p class="classified-ad-description" id="classified-ad-{{ node.id }}-description">
+      {{ content.body }}
+    </p>
+  </section>
+
+  <footer class="classified-ad-footer">
+    <div class="classified-ad-actions">
+      {# Check if the ad is expired and show the appropriate button #}
+      {% if content.field_expiration_date.value < "now"|date("Y-m-d") %}
+        <button class="expired-button" disabled="disabled" aria-label="This ad has expired" title="Expired Ad">Expired</button>
+      {% else %}
+        <a href="{{ path('node.view', {'node': node.id}) }}" class="btn btn-primary" role="link" aria-label="View classified ad details">View Details</a>
+      {% endif %}
+    </div>
+
+    <div class="classified-ad-price">
+      <span class="price-label" aria-label="Price">Price:</span>
+      <span class="classified-ad-price-value">{{ content.field_price.value | currency }}</span>
+    </div>
+
+    <div class="classified-ad-expiration" aria-label="Expiration Date">
+      <p>
+        <strong>Expires on:</strong> 
+        <time datetime="{{ content.field_expiration_date.value }}" class="expiration-date">{{ content.field_expiration_date.value | date("F j, Y") }}</time>
+      </p>
+    </div>
+  </footer>
+</article>
