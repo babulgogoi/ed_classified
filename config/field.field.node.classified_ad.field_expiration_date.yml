@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+id: field.field.node.classified_ad.field_expiration_date
+field_name: field_expiration_date
+entity_type: node
+bundle: classified_ad
+label: 'Expiration Date'
+field_type: datetime
+required: true
+settings:
+  date_format: 'custom'
+  custom_date_format: 'Y-m-d'
